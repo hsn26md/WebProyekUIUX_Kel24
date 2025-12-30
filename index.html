@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagara Glamping - Luxury Nature Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        brand: { dark: '#005596', main: '#EA6C00', accent: '#FDF6E3' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .carousel-item {
+            display: none;
+            transition: opacity 2s ease-in-out;
+        }
+        .carousel-item.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-brand-dark flex items-center gap-2">
+                <i class="fa-solid fa-campground text-brand-main"></i>
+                BEST<span class="text-brand-main">CAMP</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="font-medium hover:text-brand-main transition">Beranda</a>
+                <a href="#produk" class="font-medium hover:text-brand-main transition">Fasilitas & Produk</a>
+                <a href="#booking" class="font-medium hover:text-brand-main transition">Sewa Sekarang</a>
+            </div>
+
+            <div class="hidden md:block" id="areaLoginDesktop">
+                <a href="login.html" class="px-5 py-2.5 rounded-full bg-brand-dark text-white font-semibold hover:bg-brand-main transition shadow-lg flex items-center gap-2">
+                    <i class="fa-solid fa-user"></i> Login
+                </a>
+            </div>
+            
+            <button class="md:hidden text-2xl text-brand-dark" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-700">Beranda</a>
+            <a href="#produk" class="block py-2 text-gray-700">Fasilitas</a>
+            <a href="#booking" class="block py-2 text-gray-700">Sewa</a>
+            <div id="areaLoginMobile" class="mt-4 pt-4 border-t border-gray-100">
+                <a href="login.html" class="block py-2 text-brand-accent font-bold">Login Member</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen">
+        <div id="carousel" class="relative h-full">
+
+            <div class="carousel-item active relative h-full">
+                <img src="https://www.eigeradventure.com/blog/wp-content/uploads/2021/12/camping-ground-cibodas-1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Slide 1">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex items-center justify-center text-center px-6 max-w-4xl mx-auto text-white">
+                    <div>
+                        <span class="uppercase tracking-widest text-sm font-semibold text-brand-accent mb-2 animate-pulse">The Ultimate Escape</span>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+                            Temukan Kedamaian di <br> <span class="text-brand-main">Pelukan Alam</span>
+                        </h1>
+                        <p class="text-lg md:text-xl mb-8 text-gray-200 font-light">
+                            Nikmati pengalaman camping mewah (Glamping) dengan fasilitas bintang lima.
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-4 justify-center">
+                            <a href="#produk" class="px-8 py-3 bg-brand-main hover:bg-green-500 text-white rounded-full font-semibold transition hover:scale-105 shadow-xl">Lihat Tenda</a>
+                            <a href="#booking" class="px-8 py-3 bg-white text-brand-dark hover:bg-gray-100 rounded-full font-semibold transition hover:scale-105 shadow-xl">Booking Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item relative h-full">
+                <img src="https://www.eigeradventure.com/blog/wp-content/uploads/2021/11/tempat-camping-di-bogor.png" class="absolute inset-0 w-full h-full object-cover" alt="Slide 2">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex items-center justify-center text-center px-6 max-w-4xl mx-auto text-white">
+                    <div>
+                        <span class="uppercase tracking-widest text-sm font-semibold text-brand-accent mb-2 animate-pulse">Momen Berharga</span>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+                            Ciptakan Kenangan <br> <span class="text-brand-main">Tak Terlupakan</span>
+                        </h1>
+                        <p class="text-lg md:text-xl mb-8 text-gray-200 font-light">
+                            Tempat sempurna untuk liburan keluarga atau melarikan diri sejenak dari rutinitas.
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-4 justify-center">
+                            <a href="#produk" class="px-8 py-3 bg-brand-main hover:bg-green-500 text-white rounded-full font-semibold transition hover:scale-105 shadow-xl">Jelajahi Fasilitas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item relative h-full">
+                <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfW8GGYgdf8C1vXXnIIQkmYMKMsCsxf1Qz8nTYThAozU8KnRhHhNggE5xpjP6rKeQhR65UtS3ithA_Qt4Iv5vYmV3I61QLWZuKrV3x13-9OJNpjPh3vNsMgSLnyiKF65dZzZUwWLmpM7OR4HIEmZ2dcF24I?key=_XuQKJdiyGQP3MWRRVhpkg" class="absolute inset-0 w-full h-full object-cover" alt="Slide 3">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex items-center justify-center text-center px-6 max-w-4xl mx-auto text-white">
+                    <div>
+                        <span class="uppercase tracking-widest text-sm font-semibold text-brand-accent mb-2 animate-pulse">Harmoni Alam</span>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+                            Menyatu dengan <br> <span class="text-brand-main">Keindahan Alam</span>
+                        </h1>
+                        <p class="text-lg md:text-xl mb-8 text-gray-200 font-light">
+                            Bangun pagi dengan pemandangan menakjubkan dan udara segar pegunungan.
+                        </p>
+                        <div class="flex flex-col md:flex-row gap-4 justify-center">
+                            <a href="#booking" class="px-8 py-3 bg-white text-brand-dark hover:bg-gray-100 rounded-full font-semibold transition hover:scale-105 shadow-xl">Pesan Tempatmu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-2 z-20" id="carousel-indicators">
+                <button class="w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition active-indicator" data-slide-to="0"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide-to="1"></button>
+                <button class="w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide-to="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-brand-dark py-10 text-white relative z-20 -mt-10 mx-4 md:mx-20 rounded-xl shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div><h3 class="text-3xl font-bold text-brand-accent">50+</h3><p class="text-sm opacity-80">Lokasi Tenda</p></div>
+        <div><h3 class="text-3xl font-bold text-brand-accent">24h</h3><p class="text-sm opacity-80">Layanan Keamanan</p></div>
+        <div><h3 class="text-3xl font-bold text-brand-accent">4.9</h3><p class="text-sm opacity-80">Rating Review</p></div>
+        <div><h3 class="text-3xl font-bold text-brand-accent">100%</h3><p class="text-sm opacity-80">Alam Asli</p></div>
+    </div>
+
+    <section id="produk" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pilihan <span class="text-brand-dark">Akomodasi</span></h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition border border-gray-100">
+                    <div class="relative h-64 overflow-hidden"><img src="https://contents.mediadecathlon.com/p2854451/k$75f97aa4d42601833b873ce2c38e817f/tenda-kubah-trekking-2-orang-mt500-mesh-simond-8786418.jpg?f=1920x0&format=auto" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Standard Dome</h3>
+                        <p class="text-gray-500 text-sm mb-4">Cocok untuk pasangan.</p>
+                        <div class="flex justify-between items-center border-t pt-4">
+                            <span class="text-lg font-bold text-brand-dark">Rp 350rb</span>
+                            <button onclick="pilihTenda('Standard Dome')" class="px-4 py-2 bg-gray-100 text-brand-dark rounded-lg hover:bg-brand-dark hover:text-white transition">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition border border-brand-main relative">
+                    <div class="absolute top-0 left-0 bg-brand-main text-white text-xs px-3 py-1 rounded-br-lg z-10">BEST SELLER</div>
+                    <div class="relative h-64 overflow-hidden"><img src="https://images.tokopedia.net/img/KRMmCm/2024/3/7/299b2ac0-04d3-454d-aeef-24c9f19fbc5c.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Safari Glamping</h3>
+                        <p class="text-gray-500 text-sm mb-4">Tenda luas dengan kamar mandi dalam.</p>
+                        <div class="flex justify-between items-center border-t pt-4">
+                            <span class="text-lg font-bold text-brand-dark">Rp 750rb</span>
+                            <button onclick="pilihTenda('Safari Glamping')" class="px-4 py-2 bg-brand-main text-white rounded-lg hover:bg-brand-dark transition shadow-lg">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition border border-gray-100">
+                    <div class="relative h-64 overflow-hidden"><img src="https://images.trvl-media.com/lodging/52000000/51290000/51290000/51289940/4e1b0e3a.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Family Cabin</h3>
+                        <p class="text-gray-500 text-sm mb-4">Kenyamanan maksimal untuk keluarga.</p>
+                        <div class="flex justify-between items-center border-t pt-4">
+                            <span class="text-lg font-bold text-brand-dark">Rp 1.2Jt</span>
+                            <button onclick="pilihTenda('Family Cabin')" class="px-4 py-2 bg-gray-100 text-brand-dark rounded-lg hover:bg-brand-dark hover:text-white transition">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="mt-20 rounded-2xl overflow-hidden shadow-2xl relative h-80 md:h-96 group">
+                <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Video Placeholder">
+                <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center cursor-pointer animate-bounce hover:bg-white hover:text-brand-accent transition">
+                        <i class="fa-solid fa-play text-2xl ml-1"></i>
+                    </div>
+                    <h3 class="mt-4 text-2xl font-semibold">Lihat Tur Virtual Kami</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">Siap untuk Berpetualang?</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Isi formulir untuk mengamankan tenda impianmu.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl"><i class="fa-solid fa-check"></i></div>
+                            <div><h4 class="font-bold text-gray-800">Booking Mudah</h4><p class="text-sm text-gray-500">Proses cepat tanpa ribet.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-brand-main">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Formulir Pemesanan</h3>
+                        
+                        <form id="bookingForm" onsubmit="kirimPesanan(event)">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                                    <input type="text" id="inputNama" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main outline-none" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Nomor WhatsApp</label>
+                                    <input type="tel" id="inputWa" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main outline-none" placeholder="0812...">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Check-In</label>
+                                    <input type="date" id="inputCheckIn" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Durasi (Malam)</label>
+                                    <input type="number" id="inputDurasi" min="1" value="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main outline-none">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Pilih Tenda</label>
+                                <select id="tendaSelect" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main outline-none">
+                                    <option value="Standard Dome">Standard Dome - Rp 350rb</option>
+                                    <option value="Safari Glamping">Safari Glamping - Rp 750rb</option>
+                                    <option value="Family Cabin">Family Cabin - Rp 1.2Jt</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Jumlah Orang</label>
+                                <input type="number" id="inputOrang" min="1" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-main outline-none" placeholder="Jumlah orang">
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-brand-dark text-white font-bold rounded-lg hover:bg-brand-main transition shadow-lg">
+                                Kirim Pesanan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-900 text-white py-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold"><i class="fa-solid fa-campground text-brand-accent"></i> BEST<span class="text-brand-main">CAMP</span></h2>
+                <p class="text-gray-400 mt-2 text-sm">Luxury Camping Experience.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+        <div class="text-center mt-8 pt-8 border-t border-gray-800 text-gray-500 text-sm">&copy; 2025 Best Camp.</div>
+    </footer>
+
+    <script>
+
+        window.onload = function() {
+            var user = JSON.parse(localStorage.getItem('userSedangLogin'));
+
+            if (user) {
+
+                var areaDesktop = document.getElementById('areaLoginDesktop');
+                areaDesktop.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-brand-dark">Hi, ${user.nama}</span>
+                        <button onclick="prosesLogout()" class="text-red-500 text-sm font-bold border border-red-200 px-3 py-1 rounded-full hover:bg-red-50">Logout</button>
+                    </div>
+                `;
+
+                var areaMobile = document.getElementById('areaLoginMobile');
+                areaMobile.innerHTML = `
+                    <div class="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                        <span class="font-bold text-brand-dark">Hi, ${user.nama}</span>
+                        <button onclick="prosesLogout()" class="text-red-500 font-bold">Logout</button>
+                    </div>
+                `;
+
+
+                document.getElementById('inputNama').value = user.nama;
+            }
+        };
+
+        function prosesLogout() {
+            if (confirm("Yakin ingin keluar?")) {
+                localStorage.removeItem('userSedangLogin');
+                window.location.reload();
+            }
+        }
+
+
+        function kirimPesanan(event) {
+            event.preventDefault();
+
+
+            var user = JSON.parse(localStorage.getItem('userSedangLogin'));
+            if (!user) {
+                alert("Silakan Login terlebih dahulu untuk memesan!");
+                window.location.href = "login.html";
+                return;
+            }
+
+            // A. Ambil Data dari Form
+            var dataPesanan = {
+                nama: document.getElementById('inputNama').value,
+                whatsapp: document.getElementById('inputWa').value, // Opsional disimpan
+                checkIn: document.getElementById('inputCheckIn').value,
+                durasi: document.getElementById('inputDurasi').value,
+                tipeTenda: document.getElementById('tendaSelect').value,
+                jumlahOrang: document.getElementById('inputOrang').value
+            };
+
+            // B. Ambil database booking yang sudah ada di Backend
+            // Kuncinya adalah 'bookings_db' (Harus sama persis dengan yang ada di Admin)
+            var semuaBooking = JSON.parse(localStorage.getItem('bookings_db')) || [];
+
+            // C. Masukkan pesanan baru ke database
+            semuaBooking.push(dataPesanan);
+
+            // D. Simpan kembali ke LocalStorage
+            localStorage.setItem('bookings_db', JSON.stringify(semuaBooking));
+
+            // E. Beritahu User
+            alert("Pesanan Berhasil! Data Anda sudah masuk ke sistem kami. Silakan cek status melalui WhatsApp admin.");
+            
+            // F. Reset Form
+            event.target.reset();
+            // Isi ulang nama karena form direset
+            document.getElementById('inputNama').value = user.nama;
+        }
+
+        // === 4. HELPER SCROLL & PILIH ===
+        function pilihTenda(namaTenda) {
+            document.getElementById('tendaSelect').value = namaTenda;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.onscroll = function() {
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('shadow-md', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        };
+    </script>
+    <!-- JAVASCRIPT CAROUSEL -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('#carousel-indicators button');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active-indicator', 'opacity-100'));
+            
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active-indicator', 'opacity-100');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
+        }
+
+        function stopSlideShow() {
+            clearInterval(slideInterval);
+        }
+
+        // Event listeners untuk indikator
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                stopSlideShow();
+                showSlide(index);
+                startSlideShow();
+            });
+        });
+
+        // Mulai slideshow saat halaman dimuat
+        startSlideShow();
+
+        // Hentikan slideshow saat mouse berada di atas carousel
+        document.getElementById('carousel').addEventListener('mouseenter', stopSlideShow);
+        document.getElementById('carousel').addEventListener('mouseleave', startSlideShow);
+    </script>
+</body>
+</html>

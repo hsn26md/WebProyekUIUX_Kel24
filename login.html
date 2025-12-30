@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Member - Sagara Glamping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        brand: { dark: '#005596', main: '#EA6C00', accent: '#f59e0b' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .login-bg {
+            background-image: url('https://www.eigeradventure.com/blog/wp-content/uploads/2021/11/tempat-camping-di-bogor.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="h-screen w-full login-bg relative flex items-center justify-center font-sans antialiased">
+    <div class="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm"></div>
+
+    <div class="relative z-10 w-full max-w-md px-4">
+        <div class="text-center mb-8">
+            <a href="index.html" class="inline-flex items-center gap-2 text-3xl font-bold text-white hover:text-brand-accent transition">
+                <i class="fa-solid fa-campground text-brand-main"></i> BEST<span class="text-brand-main">CAMP</span>
+            </a>
+            <p class="text-gray-300 mt-2 text-sm font-light">Mulai petualangan serumu di sini</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-8 border border-white/20">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Selamat Datang!</h2>
+                <p class="text-sm text-gray-500 mt-1">Masuk untuk akses promo & riwayat booking.</p>
+            </div>
+            
+            <form onsubmit="prosesLogin(event)">
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-2 ml-1">Alamat Email</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-3.5 text-gray-400"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="email" class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-brand-main outline-none" placeholder="nama@email.com" required>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2 ml-1">
+                        <label class="block text-sm font-medium text-gray-700">Password</label>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute left-4 top-3.5 text-gray-400"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" id="password" class="w-full pl-12 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-brand-main outline-none" placeholder="••••••••" required>
+                        <button type="button" onclick="togglePassword()" class="absolute right-4 top-3.5 text-gray-400"><i class="fa-solid fa-eye" id="eyeIcon"></i></button>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-brand-dark text-white font-bold rounded-lg hover:bg-brand-main transition flex justify-center items-center gap-2">
+                    <span>Masuk Member</span> <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </button>
+            </form>
+
+            <div class="mt-6 pt-6 border-t border-gray-100 text-center">
+                <p class="text-sm text-gray-500">
+                    Belum punya akun? <a href="register.html" class="font-semibold text-brand-dark hover:text-brand-main transition">Daftar Sekarang</a>
+                </p>
+                <a href="index.html" class="block mt-4 text-xs text-gray-400 hover:text-brand-main"><i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DASAR -->
+    <script>
+        // Fungsi sederhana untuk lihat/sembunyi password
+        function togglePassword() {
+            var input = document.getElementById('password');
+            var icon = document.getElementById('eyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        function prosesLogin(event) {
+            event.preventDefault();
+            
+            // 1. Ambil input dari user
+            var inputEmail = document.getElementById('email').value;
+            var inputPassword = document.getElementById('password').value;
+
+            // 2. Ambil semua data user yang tersimpan
+            var daftarUser = JSON.parse(localStorage.getItem('users')) || [];
+
+            // 3. Mencari user yang cocok (Logika Perulangan / Loop)
+            var userDitemukan = false; // Anggap belum ketemu dulu
+            var userYangLogin = null;
+
+            for (var i = 0; i < daftarUser.length; i++) {
+                var user = daftarUser[i];
+                // Cek apakah email DAN password sama
+                if (user.email === inputEmail && user.password === inputPassword) {
+                    userDitemukan = true;
+                    userYangLogin = user;
+                    break; // Berhenti mencari jika sudah ketemu
+                }
+            }
+
+            // 4. Hasil Login
+            if (userDitemukan === true) {
+                // Simpan info siapa yang sedang login sekarang
+                localStorage.setItem('userSedangLogin', JSON.stringify(userYangLogin));
+                
+                alert("Login Berhasil! Selamat datang, " + userYangLogin.nama);
+                window.location.href = "index.html";
+            } else {
+                alert("Email atau Password salah! Coba lagi.");
+            }
+        }
+    </script>
+</body>
+</html>
